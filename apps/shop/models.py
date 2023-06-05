@@ -7,9 +7,10 @@ class Product(models.Model):
     name = models.CharField(max_length=50, verbose_name='Назва')
     description = models.TextField(verbose_name='Опис')
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Ціна')
-    is_available = models.BooleanField(default=True, verbose_name='Доступність')
+    in_stock = models.IntegerField(default=0, verbose_name='На складі')
     image = models.ImageField(upload_to='product_image', null=False, verbose_name='Фото')
     category = models.CharField(max_length=50, verbose_name='Категорія')
+    discount = models.DecimalField(max_digits=8, decimal_places=2, default=0, null=True, verbose_name='Знижка')
 
     def __str__(self):
         return f'{self.name}'
@@ -19,7 +20,6 @@ class Product(models.Model):
         verbose_name = 'Товар'
         verbose_name_plural = 'Товари'
 
-# class Order(models.Model):
 
 
 
