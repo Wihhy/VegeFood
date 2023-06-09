@@ -57,8 +57,3 @@ class ProductDetailView(DetailView):
         return context
 
 
-def about(request):
-    context = {
-        'title': 'VegeFoods - About'
-    }
-    return render(request, 'Vegefoods/../../templates/about/about.html', context=context)
