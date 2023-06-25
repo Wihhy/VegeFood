@@ -71,7 +71,7 @@
             <div class="block-27">
               <ul>
                   {% if page_obj.has_previous %}
-                    <li><a href="{{ page_obj.previous_page_number }}">&lt;</a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
                   {% endif %}
                 {% if page_obj.has_previous %}
                     <li><a href="?page=1">1</a></li>
