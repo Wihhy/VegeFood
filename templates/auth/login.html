@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="col-lg-4 mt-5 cart-wrap ftco-animate" style="margin: 0 auto; text-align: center;">
+    {% if form.errors %}
+        {{ form.errors }}
+        -------------------------
+        {% endif %}
+            <div class="cart-total mb-5">
+                <h3>вхід</h3>
+                <p>Введіть свої данні у поля нижче</p>
+                <form action="{% url 'auth:login' %}" class="info" method="post">
+                    {% csrf_token %}
+          <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Електронна пошта</label>
+              {{form.username}}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">Пароль</label>
+              {{form.password}}
+          </div>
+                    <input type="submit" class="btn btn-primary py-3 px-4" value="Увійти">
+                </form>
+            </div>
+    </div>
+{% endblock %}

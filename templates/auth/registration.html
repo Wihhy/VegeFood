@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="col-lg-4 mt-5 cart-wrap ftco-animate" style="margin: 0 auto; text-align: center;">
+            <div class="cart-total mb-5">
+                <h3>Реєстрація</h3>
+                <p>Введіть свої данні у поля нижче</p>
+                <form action="{% url 'auth:registration' %}" method="post" class="info">
+                    {% csrf_token %}
+          <div class="form-group">
+            <label for="{{ form.first_name.id_for_label }}">Імʼя</label>
+              {{ form.first_name }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.last_name.id_for_label }}">Прізвище</label>
+              {{ form.last_name }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Електронна пошта</label>
+              {{ form.email }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.password1.id_for_label }}">Пароль</label>
+              {{ form.password1 }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.password2.id_for_label }}">Повторіть пароль</label>
+              {{ form.password2 }}
+          </div>
+                    <input type="submit" class="btn btn-primary py-3 px-4" value="Зареєструватись">
+                </form>
+            </div>
+    </div>
+{% endblock %}
